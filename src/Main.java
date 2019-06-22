@@ -15,8 +15,12 @@ public class Main {
         tree.insert(34);
         tree.insert(36);
 
-        // tree.sort();
-        // System.out.println(tree.maxDepth(tree.top));
-        tree.printMatrix();
+
+        tree.top.printMatrix();
+        System.out.println();
+        System.out.println();
+
+        BinaryTree.Node deletedTree = tree.delete(tree.top, 36);
+        deletedTree.printMatrix();
     }
 }
