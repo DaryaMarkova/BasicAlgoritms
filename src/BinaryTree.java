@@ -132,6 +132,7 @@ public class BinaryTree {
         } else if (deletedValue > start.value) {
             start.right = delete(start.right, deletedValue);
         } else if (start.left != null && start.right != null) {
+            // оба потомка не равны нулю, ищем минимальное значение в правом поддереве
             start.value = minimum(start.right).value;
             start.right = delete(start.right, start.value);
         } else {
