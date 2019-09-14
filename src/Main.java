@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         AVLTree avlTree = new AVLTree();
-        AVLTree.Node root = null;
+        Node root = null;
 
         root = avlTree.insert(root, -10);
         root = avlTree.insert(root, 2);
@@ -13,6 +13,5 @@ public class Main {
         root = avlTree.insert(root, 20);
 
         root.printMatrix();
-        // avlTree.sort(root);
     }
 }

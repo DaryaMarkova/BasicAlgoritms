@@ -1,4 +1,9 @@
-// https://neerc.ifmo.ru/wiki/index.php?title=%D0%94%D0%B5%D1%80%D0%B5%D0%B2%D0%BE_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0,_%D0%BD%D0%B0%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F_%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F#.D0.A0.D0.B5.D0.B0.D0.BB.D0.B8.D0.B7.D0.B0.D1.86.D0.B8.D1.8F_.D0.B1.D0.B5.D0.B7_.D0.B8.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D1.8F_.D0.B8.D0.BD.D1.84.D0.BE.D1.80.D0.BC.D0.B0.D1.86.D0.B8.D0.B8_.D0.BE_.D1.80.D0.BE.D0.B4.D0.B8.D1.82.D0.B5.D0.BB.D0.B5
+import java.util.ArrayDeque;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+
 public class BinaryTree {
     class Node {
         Node left, right;
@@ -143,5 +148,135 @@ public class BinaryTree {
         }
 
         return start;
+    }
+
+    //check if tree is a binary search tree
+    // is less than max
+    // is greater then min
+    public boolean isBST(Node root, int min, int max) {
+        if (root == null) {
+            return true;
+        }
+
+        if (root.value <= min || root.value > max) {
+            return false;
+        }
+
+        return isBST(root.left, min, root.value) && isBST(root.right, root.value, max);
+    }
+
+    public void levelOrderTraversal(Node root) {
+        if (root == null) {
+            return;
+        }
+
+        Queue<Node> nodes = new LinkedList();
+        nodes.add(root);
+
+        while (!nodes.isEmpty()) {
+            root = nodes.poll();
+            // print root.value
+        }
+
+        if (root.left != null) {
+            nodes.add(root.left);
+        }
+
+        if (root.right != null) {
+            nodes.add(root.right);
+        }
+    }
+    // left,right,visit
+    public void iterativePostOrder(Node root) {
+        Stack<Node> stack1 = new Stack<>();
+        Stack<Node> stack2 = new Stack<>();
+
+        stack1.push(root);
+
+
+        while (!stack1.isEmpty()) {
+            root = stack1.pop();
+            stack2.push(root);
+
+            if (root.left != null) {
+                stack1.push(root.left);
+            }
+
+            if (root.right != null) {
+                stack1.push(root.right);
+            }
+        }
+    }
+
+    // visit, left, right
+    public void iterativePreOrder(Node root) {
+        if (root != null) {
+            return;
+        }
+
+        Stack<Node> nodes = new Stack<>();
+        nodes.push(root);
+
+        while (!nodes.isEmpty()) {
+            root = nodes.pop();
+            System.out.println(root.value);
+
+            if (root.right != null) {
+                nodes.push(root.right);
+            }
+
+            if (root.left != null) {
+                nodes.push(root.left);
+            }
+        }
+
+    }
+
+    // visit, left, right
+    public void iterativeInOrder(Node root) {
+        if (root != null) {
+            return;
+        }
+
+        Stack<Node> nodes = new Stack<>();
+
+        while (true) {
+            if (root != null) {
+                nodes.push(root);
+                root = root.left;
+            } else {
+                if (nodes.isEmpty()) {
+                    break;
+                }
+                root = nodes.pop();
+                System.out.println(root.value);
+                root = root.right;
+            }
+        }
+    }
+
+    public void levelOrderLineByLine(Node root) {
+        Stack<Node> nodes = new Stack<>();
+        nodes.push(root);
+        nodes.push(null);
+
+        while(true) {
+          root = nodes.pop();
+
+          if (root == null) {
+              nodes.push(null);
+              // println();
+          } else {
+              // print()
+              if (root.left != null) {
+                  nodes.push(root.left);
+              }
+
+              if (root.right != null) {
+                  nodes.push(root.right);
+              }
+          }
+
+        }
     }
 }
