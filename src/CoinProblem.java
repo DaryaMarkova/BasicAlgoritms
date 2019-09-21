@@ -39,8 +39,6 @@ public class CoinProblem {
 
     public List<Integer> getBestCombination(int[] coins, int restSum, List<Integer> combination) {
         if (restSum == 0) {
-            combination.forEach(number -> System.out.printf("%d ", number));
-            System.out.println();
             return combination;
         }
 
@@ -103,7 +101,7 @@ public class CoinProblem {
         CoinProblem problem = new CoinProblem();
         // problem.calculateDynamic();
         // problem.calculateRecursive(new int[] {2, 4, 5, 6, 8}, 15, new ArrayList<>());
-       List<Integer> list = problem.getBestCombination(new int[] {2, 4, 5, 6, 8}, 16, new ArrayList<>());
+       List<Integer> list = problem.getBestCombination(new int[] {2, 4, 5, 6, 8}, 13, new ArrayList<>());
        System.out.println("----------------------------------------");
        System.out.println("Min result is " + list.toString() + " with size = " + list.size() + ".");
     }
