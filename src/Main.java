@@ -1,17 +1,19 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        AVLTree avlTree = new AVLTree();
-        Node root = null;
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] row = new int[n];
+        int i = -1;
 
-        root = avlTree.insert(root, -10);
-        root = avlTree.insert(root, 2);
-        root = avlTree.insert(root, 13);
-        root = avlTree.insert(root, -13);
-        root = avlTree.insert(root, -15);
-        root = avlTree.insert(root, 15);
-        root = avlTree.insert(root, 17);
-        root = avlTree.insert(root, 20);
+        while (++i < n) {
+            int value = scanner.nextInt();
+            row[i] = value;
+        }
 
-        root.printMatrix();
+        RowTree tree = new RowTree(n, row);
+        int height = tree.getMaxHeight();
+        System.out.println(height);
     }
 }
