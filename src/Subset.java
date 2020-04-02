@@ -2,7 +2,6 @@ public class Subset {
     //string subset generation
     public static void main(String[] args) {
         char[] source = {'A', 'B', 'C'};
-
         int[] counts = {2,1,1};
         char[] output = new char[4];
 

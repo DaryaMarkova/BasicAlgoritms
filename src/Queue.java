@@ -56,7 +56,7 @@ public class Queue {
         if (head == null) {
             return null;
         }
-        // удаляются из головы
+
         int value = head.value;
         head = head.next;
 

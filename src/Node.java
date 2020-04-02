@@ -36,7 +36,7 @@ public class Node {
 
         String[][] treeMatrix = new String[depth][width];
 
-        for(int i = 0; i < depth; i++) {
+        for (int i = 0; i < depth; i++) {
             for(int j=0; j < width; j++) {
                 treeMatrix[i][j] = "";
             }
