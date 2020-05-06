@@ -15,7 +15,7 @@ public class Node {
             left.printInOrder();
         }
 
-        System.out.println(value);
+        System.out.print(value + " ");
 
         if (right != null) {
             right.printInOrder();
