@@ -4,10 +4,12 @@ public class Node {
 
     int value;
     int height;
+    int size;
 
     public Node(int value) {
         this.value = value;
         this.height = 1;
+        this.size = 1;
     }
 
     public void printInOrder() {
